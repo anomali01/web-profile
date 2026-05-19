@@ -5,6 +5,7 @@ export const PROFILE = {
   subtitle: 'Web & Desktop Developer',
   location: 'Kepanjen, Malang, East Java',
   phone: '+62 812-2782-5205',
+  whatsappUrl: 'https://wa.me/6281227825205?text=Halo%20Abinaya%2C%20saya%20tertarik%20untuk%20terhubung%20dengan%20kamu!',
   email: 'agus8u7@gmail.com',
   github: 'github.com/anomali01',
   githubUrl: 'https://github.com/anomali01',
