@@ -314,24 +314,27 @@ function Skills() {
             <h2 className="text-2xl font-bold text-white sm:text-3xl">Skills</h2>
           </div>
         </FadeIn>
-        <div ref={ref} className="glass p-6 sm:p-8">
-          <div className="grid gap-5 sm:grid-cols-2">
-            {PROFILE.skills.map((skill, i) => (
-              <div key={skill.name}>
-                <div className="mb-1.5 flex items-center justify-between text-sm">
-                  <span className="font-medium text-white/85">{skill.name}</span>
-                  <span className="text-xs text-indigo-400 font-mono">{skill.level}%</span>
-                </div>
-                <div className="h-2 w-full rounded-full bg-white/10">
-                  <div className="skill-bar-fill" style={{
-                    '--target-width': `${skill.level}%`,
-                    width: visible ? `${skill.level}%` : '0%',
-                    transition: `width 1s ${i * 80}ms ease`,
-                  } as React.CSSProperties} />
-                </div>
+        <div ref={ref} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {PROFILE.skills.map((skill, i) => (
+            <div key={skill.name}
+              className="glass glass-hover card-shimmer p-5"
+              style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? 'translateY(0)' : 'translateY(20px)',
+                transition: `opacity 0.5s ${i * 80}ms ease, transform 0.5s ${i * 80}ms ease`,
+              }}>
+              <div className="mb-3 flex items-start justify-between gap-2">
+                <span className="text-sm font-bold text-white">{skill.name}</span>
+                <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                  skill.category === 'Language'  ? 'bg-indigo-500/20 text-indigo-300 ring-1 ring-indigo-500/30'  :
+                  skill.category === 'Framework' ? 'bg-purple-500/20 text-purple-300 ring-1 ring-purple-500/30' :
+                  skill.category === 'Database'  ? 'bg-cyan-500/20   text-cyan-300   ring-1 ring-cyan-500/30'   :
+                                                   'bg-amber-500/20  text-amber-300  ring-1 ring-amber-500/30'
+                }`}>{skill.category}</span>
               </div>
-            ))}
-          </div>
+              <p className="text-xs leading-5 text-white/55">{skill.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

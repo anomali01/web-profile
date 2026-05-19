@@ -81,15 +81,55 @@ export const PROFILE = {
     },
   ],
   skills: [
-    { name: 'JavaScript', level: 85 },
-    { name: 'PHP', level: 80 },
-    { name: 'Python', level: 72 },
-    { name: 'Java', level: 68 },
-    { name: 'Laravel Framework', level: 78 },
-    { name: 'Bootstrap 5', level: 82 },
-    { name: 'MySQL / SQLite', level: 75 },
-    { name: 'Team Leadership', level: 88 },
-    { name: 'Problem Solving', level: 85 },
-    { name: 'Prompt Crafting', level: 80 },
+    {
+      name: 'JavaScript',
+      category: 'Language',
+      desc: 'Built multiple web projects including TOKOKU e-commerce with clean, well-structured, and organized JS code for dynamic frontend interactivity.',
+    },
+    {
+      name: 'PHP',
+      category: 'Language',
+      desc: 'Primary backend language used across several projects including MAMA Marketplace and TOKOKU, handling server logic, routing, and data management.',
+    },
+    {
+      name: 'Python',
+      category: 'Language',
+      desc: 'Holds a LinkedIn-certified credential in Artificial Intelligence & Machine Learning, demonstrating foundational knowledge in AI/ML concepts with Python.',
+    },
+    {
+      name: 'Java',
+      category: 'Language',
+      desc: 'Developed a full GUI-based Banking System application using Java Swing with features like registration, authentication, transfers, and transaction history.',
+    },
+    {
+      name: 'Laravel Framework',
+      category: 'Framework',
+      desc: 'Used extensively in MAMA Marketplace and TOKOKU projects — handling MVC architecture, Blade templating, Eloquent ORM, and middleware.',
+    },
+    {
+      name: 'Bootstrap 5',
+      category: 'Framework',
+      desc: 'Applied in the TOKOKU project as the primary frontend framework to build responsive and consistent UI components across pages.',
+    },
+    {
+      name: 'MySQL / SQLite',
+      category: 'Database',
+      desc: 'Used MySQL in MAMA Marketplace for relational data and SQLite in TOKOKU for a lightweight embedded database solution.',
+    },
+    {
+      name: 'Team Leadership',
+      category: 'Soft Skill',
+      desc: 'Led the development team for the TOKOKU project and served as Head of Event Committee at IF-League 2024 UISI, coordinating members effectively.',
+    },
+    {
+      name: 'Problem Solving',
+      category: 'Soft Skill',
+      desc: 'Consistently tackled technical and organizational challenges across academic projects, from debugging complex systems to managing event logistics.',
+    },
+    {
+      name: 'Prompt Crafting',
+      category: 'Soft Skill',
+      desc: 'Skilled at writing precise and effective AI prompts to accelerate development workflows, generate structured code, and optimize output quality.',
+    },
   ],
 } as const
