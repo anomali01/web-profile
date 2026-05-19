@@ -80,7 +80,7 @@ function Tag({ children }: { children: React.ReactNode }) {
 function NavBar({ active }: { active: string }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const links = ['about', 'experience', 'skills', 'education', 'organizations', 'contact']
+  const links = ['about', 'experience', 'skills', 'certifications', 'education', 'organizations', 'contact']
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 20)
@@ -472,6 +472,55 @@ function Contact() {
   )
 }
 
+function Certifications() {
+  return (
+    <section id="certifications" className="scroll-mt-20 py-14">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <FadeIn>
+          <div className="mb-10 flex items-center gap-3">
+            <Star size={22} className="text-indigo-400" />
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">Certifications</h2>
+          </div>
+        </FadeIn>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {PROFILE.certifications.map((cert, i) => (
+            <FadeIn key={cert.code} delay={i * 100}>
+              <div className="glass glass-hover card-shimmer p-5 h-full">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                        cert.issuer === 'Dicoding'
+                          ? 'bg-blue-500/20 text-blue-300 ring-1 ring-blue-500/30'
+                          : 'bg-teal-500/20 text-teal-300 ring-1 ring-teal-500/30'
+                      }`}>{cert.issuer}</span>
+                      <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium ${
+                        cert.category === 'Data & AI'
+                          ? 'bg-purple-500/15 text-purple-300'
+                          : 'bg-orange-500/15 text-orange-300'
+                      }`}>{cert.category}</span>
+                    </div>
+                    <div className="text-sm font-bold text-white">{cert.title}</div>
+                    <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/45">
+                      <span>Issued: <span className="text-white/65">{cert.date}</span></span>
+                      <span>Valid until: <span className="text-white/65">{cert.validUntil}</span></span>
+                    </div>
+                    <div className="mt-1.5 font-mono text-xs text-indigo-400/70">ID: {cert.code}</div>
+                  </div>
+                  <a href={cert.url} target="_blank" rel="noreferrer"
+                    className="btn-glow shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-indigo-500/30 bg-indigo-500/10 px-3 py-2 text-xs font-semibold text-indigo-300 transition hover:bg-indigo-500/20">
+                    <ExternalLink size={12} /> Verify
+                  </a>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function BackToTop() {
   const [show, setShow] = useState(false)
   useEffect(() => {
@@ -487,7 +536,7 @@ function BackToTop() {
 }
 
 export default function App() {
-  const navIds = ['about', 'experience', 'skills', 'education', 'organizations', 'contact']
+  const navIds = ['about', 'experience', 'skills', 'certifications', 'education', 'organizations', 'contact']
   const active = useScrollSpy(navIds)
 
   return (
@@ -533,6 +582,7 @@ export default function App() {
 
         <Experience />
         <Skills />
+        <Certifications />
         <Education />
         <Organizations />
         <Contact />
