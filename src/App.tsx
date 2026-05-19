@@ -5,7 +5,7 @@ import { SpaceBackground } from './SpaceBackground'
 import {
   Mail, Phone, MapPin, ExternalLink, Code2,
   Menu, X, ChevronUp, Briefcase, GraduationCap,
-  Users, Cpu, Send, Download, Star
+  Users, Cpu, Send, Download, Star, FileText, Maximize2
 } from 'lucide-react'
 
 function GithubIcon({ size = 16 }: { size?: number }) {
@@ -81,7 +81,7 @@ function Tag({ children }: { children: React.ReactNode }) {
 function NavBar({ active }: { active: string }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const links = ['about', 'experience', 'skills', 'certifications', 'education', 'organizations', 'contact']
+  const links = ['about', 'experience', 'skills', 'certifications', 'education', 'organizations', 'resume', 'contact']
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 20)
@@ -516,6 +516,72 @@ function Certifications() {
   )
 }
 
+function Resume() {
+  const [fullscreen, setFullscreen] = useState(false)
+  const pdfPath = import.meta.env.BASE_URL + 'resume.pdf'
+  return (
+    <section id="resume" className="scroll-mt-20 py-14">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <FadeIn>
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <FileText size={22} className="text-indigo-400" />
+              <h2 className="text-2xl font-bold text-white sm:text-3xl">My Resume</h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <a
+                href={pdfPath}
+                download="Resume_Abinaya_Arya_Zaidan.pdf"
+                className="btn-glow inline-flex items-center gap-2 rounded-xl border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 text-sm font-semibold text-indigo-300 transition hover:bg-indigo-500/20"
+              >
+                <Download size={15} /> Download PDF
+              </a>
+              <a
+                href={pdfPath}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-glow inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10"
+              >
+                <Maximize2 size={15} /> Open Full
+              </a>
+            </div>
+          </div>
+        </FadeIn>
+        <FadeIn delay={100}>
+          <div className={`glass overflow-hidden rounded-2xl border border-white/10 transition-all duration-500 ${fullscreen ? 'fixed inset-4 z-50' : 'relative'}`}>
+            {fullscreen && (
+              <button
+                onClick={() => setFullscreen(false)}
+                className="absolute right-3 top-3 z-10 rounded-xl border border-white/10 bg-[#020617]/80 p-2 text-white/70 backdrop-blur hover:text-white transition"
+              >
+                <X size={18} />
+              </button>
+            )}
+            <div className="flex items-center justify-between border-b border-white/10 bg-white/5 px-5 py-3">
+              <div className="flex items-center gap-2 text-sm font-medium text-white/80">
+                <FileText size={15} className="text-indigo-400" />
+                Resume_Abinaya_Arya_Zaidan_S6.pdf
+              </div>
+              <button
+                onClick={() => setFullscreen(f => !f)}
+                className="text-xs text-white/50 hover:text-white transition flex items-center gap-1"
+              >
+                <Maximize2 size={13} /> {fullscreen ? 'Exit' : 'Fullscreen'}
+              </button>
+            </div>
+            <iframe
+              src={pdfPath + '#toolbar=0&navpanes=0&scrollbar=1'}
+              title="Resume Abinaya Arya Zaidan"
+              className="w-full bg-white"
+              style={{ height: fullscreen ? 'calc(100vh - 100px)' : '780px' }}
+            />
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  )
+}
+
 function BackToTop() {
   const [show, setShow] = useState(false)
   useEffect(() => {
@@ -531,7 +597,7 @@ function BackToTop() {
 }
 
 export default function App() {
-  const navIds = ['about', 'experience', 'skills', 'certifications', 'education', 'organizations', 'contact']
+  const navIds = ['about', 'experience', 'skills', 'certifications', 'education', 'organizations', 'resume', 'contact']
   const active = useScrollSpy(navIds)
 
   return (
@@ -582,6 +648,7 @@ export default function App() {
         <Certifications />
         <Education />
         <Organizations />
+        <Resume />
         <Contact />
 
         <footer className="border-t border-white/10 py-8 text-sm text-white/40">
