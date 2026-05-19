@@ -15,6 +15,20 @@ export const PROFILE = {
     'A 20-year-old Informatics student at Semen Indonesia International University (6th semester) with hands-on experience building web and desktop applications. Proficient in JavaScript, Python, and PHP with an understanding of the Laravel framework. Known as a hardworking, diligent, and responsible individual who thrives in a team environment and enjoys solving complex problems.',
   experience: [
     {
+      role: 'Mobile App Developer',
+      org: 'Aplikasi Perizinan Santri',
+      date: 'May 2026',
+      links: {
+        repo: 'https://github.com/anomali01/Aplikasi-Perizinan-Santri',
+      },
+      points: [
+        'Developed a mobile application for managing student leave/permission requests at an Islamic boarding school (pesantren).',
+        'Features include permission submission by students, approval flow by supervisors (ustadz/warden), and real-time status tracking.',
+        'Built with Flutter (Dart) for cross-platform Android & iOS support with a clean and responsive UI.',
+      ],
+      tags: ['Flutter', 'Dart', 'Mobile App'],
+    },
+    {
       role: 'Website Developer',
       org: 'MAMA (Marketplace Mahasiswa)',
       date: 'Jan 2026',
@@ -143,6 +157,11 @@ export const PROFILE = {
       name: 'Laravel Framework',
       category: 'Framework',
       desc: 'Used extensively in MAMA Marketplace and TOKOKU projects — handling MVC architecture, Blade templating, Eloquent ORM, and middleware.',
+    },
+    {
+      name: 'Flutter & Dart',
+      category: 'Framework',
+      desc: 'Built the Aplikasi Perizinan Santri mobile app using Flutter, enabling cross-platform Android & iOS deployment with a single codebase.',
     },
     {
       name: 'Bootstrap 5',
