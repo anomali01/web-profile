@@ -8,6 +8,8 @@ export const PROFILE = {
   email: 'agus8u7@gmail.com',
   github: 'github.com/anomali01',
   githubUrl: 'https://github.com/anomali01',
+  linkedin: 'linkedin.com/in/abinaya-zaidan',
+  linkedinUrl: 'https://www.linkedin.com/in/abinaya-zaidan-870b25293/',
   summary:
     'A 20-year-old Informatics student at Semen Indonesia International University (6th semester) with hands-on experience building web and desktop applications. Proficient in JavaScript, Python, and PHP with an understanding of the Laravel framework. Known as a hardworking, diligent, and responsible individual who thrives in a team environment and enjoys solving complex problems.',
   experience: [
