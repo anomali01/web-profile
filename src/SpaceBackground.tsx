@@ -134,8 +134,8 @@ export function SpaceBackground() {
         m.life++; m.x += m.vx; m.y += m.vy
         const prog = m.life / m.maxLife
         const a = prog < 0.2 ? prog / 0.2 : 1 - (prog - 0.2) / 0.8
-        const g = ctx.createLinearGradient(m.x - m.vx/m.speed*m.len, m.y - m.vy/m.speed*m.len, m.x, m.y)
-        const spd = Math.sqrt(m.vx*m.vx+m.vy*m.vy)
+        const spd = Math.sqrt(m.vx * m.vx + m.vy * m.vy)
+        const g = ctx.createLinearGradient(m.x - (m.vx/spd)*m.len, m.y - (m.vy/spd)*m.len, m.x, m.y)
         g.addColorStop(0,'rgba(255,255,255,0)'); g.addColorStop(1,`rgba(255,255,255,${a*0.9})`)
         ctx.beginPath()
         ctx.moveTo(m.x - (m.vx/spd)*m.len, m.y - (m.vy/spd)*m.len)
