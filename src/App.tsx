@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { PROFILE } from './data'
 import profilePhoto from './assets/foto_Uisi_Abinaya.jpg'
+import { SpaceBackground } from './SpaceBackground'
 import {
   Mail, Phone, MapPin, ExternalLink, Code2,
   Menu, X, ChevronUp, Briefcase, GraduationCap,
@@ -162,12 +163,6 @@ function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden py-20 sm:py-28">
-      {/* Background orbs */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/4 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-indigo-600/20 blur-3xl" />
-        <div className="absolute right-0 top-1/2 h-80 w-80 rounded-full bg-purple-500/15 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
-      </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -540,7 +535,9 @@ export default function App() {
   const active = useScrollSpy(navIds)
 
   return (
-    <div className="min-h-dvh bg-[#020617] text-white">
+    <div className="min-h-dvh text-white relative">
+      <SpaceBackground />
+      <div className="relative z-10">
       <NavBar active={active} />
       <main>
         <Hero />
@@ -603,6 +600,7 @@ export default function App() {
         </footer>
       </main>
       <BackToTop />
+      </div>
     </div>
   )
 }
