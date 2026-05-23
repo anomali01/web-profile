@@ -13,5 +13,5 @@ if (fs.existsSync(resumeSrc)) {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Web_profile_Abinaya/',
+  base: '/web-profile/',
 })
